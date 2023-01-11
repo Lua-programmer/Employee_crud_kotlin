@@ -20,7 +20,7 @@ class EmployeeService(private val repository: EmployeeRepository) {
         return if (repository.existsById(employeeId)) {
             repository.save(
                 Employee(
-                    id = employee.id,
+                    id = employeeId,
                     userName = employee.userName,
                     firstName = employee.firstName,
                     middleName = employee.middleName,

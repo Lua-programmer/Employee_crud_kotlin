@@ -1,0 +1,37 @@
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "userName": "zendayaphillips",
+  "firstName": "Zendaya",
+  "middleName": "Phillips",
+  "lastName": "Theo",
+  "emailId": "zendaya@gmail.com",
+  "dayOfBirth": "1996-08-16"
+}
+
+###
+
+GET http://localhost:8080/employees
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/employees/1
+Content-Type: application/json
+
+###
+PUT http://localhost:8080/employees/1
+Content-Type: application/json
+
+{
+  "userName": "zoepotter",
+  "firstName": "Zoe",
+  "middleName": "Potter",
+  "lastName": "Michaelson",
+  "emailId": "zoepotter@gmail.com",
+  "dayOfBirth": "2000-08-16"
+}
+
+###
+DELETE http://localhost:8080/employees/1
