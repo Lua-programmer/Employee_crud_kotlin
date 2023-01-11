@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service
 @Service
 class EmployeeService(private val repository: EmployeeRepository) {
 
+    private val msgNotFound = "No matching employee was found"
+
     fun getAllEmployees(): List<Employee> = repository.findAll()
 
     fun getEmployeeById(employeeId: Long): Employee = repository.findById(employeeId)
-        .orElseThrow { EmployeeNotFoundException(HttpStatus.NOT_FOUND, "No matching employee was found") }
+        .orElseThrow { EmployeeNotFoundException(HttpStatus.NOT_FOUND, msgNotFound) }
 
     fun createEmployee(employee: Employee): Employee = repository.save(employee)
 
@@ -29,12 +31,12 @@ class EmployeeService(private val repository: EmployeeRepository) {
                     dayOfBirth = employee.dayOfBirth
                 )
             )
-        } else throw EmployeeNotFoundException(HttpStatus.NOT_FOUND, "No matching employee was found")
+        } else throw EmployeeNotFoundException(HttpStatus.NOT_FOUND, msgNotFound)
     }
 
     fun deleteEmployeeById(employeeId: Long) {
         return if (repository.existsById(employeeId)) {
             repository.deleteById(employeeId)
-        } else throw EmployeeNotFoundException(HttpStatus.NOT_FOUND, "No matching employee was found")
+        } else throw EmployeeNotFoundException(HttpStatus.NOT_FOUND, msgNotFound)
     }
 }
