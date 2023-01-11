@@ -1,0 +1,11 @@
+/.gradle/
+/.idea/
+/gradle/
+/expat_dev.iml
+/gradlew
+/gradlew.bat
+/HELP.md
+/settings.gradle.kts
+
+target
+build
